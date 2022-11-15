@@ -40,8 +40,8 @@ class DiaryEntry
     # If called again, `reading_chunk` should return the next chunk, skipping
     # what has already been read, until the contents is fully read.
     # The next call after that it should restart from the beginning.
-    words_read = wpm * minutes
-    chunk = contents.split(" ")[@total_words_read ... words_read]
+    words_to_read = wpm * minutes
+    chunk = contents.split(" ")[@total_words_read ... words_to_read]
     @total_words_read += words_read
     # puts chunk
     chunk
