@@ -2,4 +2,6 @@
 
 require "todo"
 
-RSpec.describe 
+RSpec.describe "it constructs" do 
+  
+end

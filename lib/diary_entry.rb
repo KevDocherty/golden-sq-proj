@@ -6,7 +6,7 @@ class DiaryEntry
     @title = title
     # fail "no contents provided" if @contents == ""
     @contents = contents
-    @total_words_read = 0
+    @words_read = 0
   end
 
   def title
@@ -41,8 +41,8 @@ class DiaryEntry
     # what has already been read, until the contents is fully read.
     # The next call after that it should restart from the beginning.
     words_to_read = wpm * minutes
-    chunk = contents.split(" ")[@total_words_read ... words_to_read]
-    @total_words_read += words_read
+    chunk = contents.split(" ")[@words_read ... (@words_read + words_to_read)]
+    @words_read += words_to_read
     # puts chunk
     chunk
   end

@@ -43,13 +43,14 @@ class Diary
     # have available given their reading speed.
     max_words = wpm * minutes
     most_words = 0
+    best_entry = nil
     @diary.each do |entry|
       if (entry.count_words < max_words) && (entry.count_words > most_words)
         best_entry = entry
         most_words = entry.count_words
       end
-    return best_entry
-    end
     
+    end
+    return best_entry
   end
 end

@@ -29,25 +29,3 @@ RSpec.describe TaskList do
     end
   end
 end
-'''
-tasks = TaskList.new()
-tasks.read_tasks() # => []
-
-# 2.
-tasks = TaskList.new()
-tasks.add_task("Buy milk")
-tasks.read_tasks() # => "Buy milk"
-
-# 3. 
-tasks = TaskList.new()
-tasks.add_task("Buy milk")
-tasks.add_task("Buy bread")
-tasks.delete_task("Buy milk")
-tasks.read_tasks() # => []
-
-
-# 4.
-tasks = TaskList.new()
-tasks.add_task("Buy milk")
-tasks.delete_task("Buy bread") # => fail: "no such task"
-'''
