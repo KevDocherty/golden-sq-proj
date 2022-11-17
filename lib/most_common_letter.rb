@@ -14,7 +14,7 @@ end
 
 #get_most_common_letter("the roof, the roof, the roof is on fire")
 result = get_most_common_letter("the roof, the roof, the roof is on fire")
-puts result[-1][0]
+#puts result[-1][0]
 
 # Intended output:
 # 

@@ -3,7 +3,6 @@ class Todo
   def initialize(task) # task is a string
     @todo = task
     @done = false
-    #@done = []
   end
 
   def task

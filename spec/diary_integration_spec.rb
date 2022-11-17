@@ -3,41 +3,23 @@
 require "diary"
 require "diary_entry"
 
-RSpec.describe "Diary Integration" do
-  it "gets all entries" do
-    diary = Diary.new()
-    entry_1 = DiaryEntry.new("Mon 14 Nov 2022", "Busy at Makers!")
-    entry_2 = DiaryEntry.new("Tues 15 Nov 2022", "Working on 8 - test driving a class system!")
-    diary.add(entry_1)
-    diary.add(entry_2)
-    expect(diary.all).to eq [entry_1, entry_2]
-  end
-  
-  it "counts all words in diary contents" do
+RSpec.describe Diary do
+  it "gets all diary entries" do
     diary = Diary.new
-    entry_1 = DiaryEntry.new("Mon 14 Nov 2022", "Busy at Makers!")
-    entry_2 = DiaryEntry.new("Tues 15 Nov 2022", "Working on 8 - test driving a class system!")
-    diary.add(entry_1)
-    diary.add(entry_2)
-    expect(diary.count_words()).to eq 12
+    entry_1 = DiaryEntry.new("first entry","first contents")
+    entry_2 = DiaryEntry.new("second entry", "second contents")
+    diary.add_entry(entry_1)
+    diary.add_entry(entry_2)
+    expect(diary.read_all).to eq [entry_1, entry_2]
   end
   
-  it "returns the time to read every entry" do
+  it "returns the best match entry based upon time available" do
     diary = Diary.new
-    entry_1 = DiaryEntry.new("Mon 14 Nov 2022", "Busy at Makers!")
-    entry_2 = DiaryEntry.new("Tues 15 Nov 2022", "Working on 8 - test driving a class system!")
-    diary.add(entry_1)
-    diary.add(entry_2)
-    expect(diary.reading_time(5)).to eq 3
+    entry_1 = DiaryEntry.new("first entry","one " * 100)
+    entry_2 = DiaryEntry.new("second entry", "two " * 200)
+    diary.add_entry(entry_1)
+    diary.add_entry(entry_2)
+    expect(diary.best_entry(50,2)).to eq entry_1
   end
-  
-  it "finds the diary entry which can be read in the time available" do
-    diary = Diary.new
-    entry_1 = DiaryEntry.new("Mon 14 Nov 2022", "Busy at Makers! ")
-    entry_2 = DiaryEntry.new("Tues 15 Nov 2022", "Working on 8 - test driving a class system!")
-    diary.add(entry_1)
-    diary.add(entry_2)
-    expect(diary.find_best_entry_for_reading_time(2,2)).to eq entry_1
-  end
-  
 end
+  

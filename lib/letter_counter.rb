@@ -7,7 +7,7 @@ class LetterCounter
     counter = Hash.new(0)
     #counter = Hash.new
     #counter = {}
-    p counter
+    #p counter
     most_common = nil
     #most_common_count = 1
     most_common_count = 0
@@ -33,7 +33,7 @@ class LetterCounter
 end
 
 counter = LetterCounter.new("Digital Punk")
-p counter.calculate_most_common
+#p counter.calculate_most_common
 
 # Intended output:
 # [2, "i"]

@@ -1,25 +1,26 @@
-# File: lib/task_list.rb
-
 class TaskList
-  
   def initialize
+    # returns nothing
     @task_list = []
   end
   
   def add_task(task)
+    # task is a Task object
+    # adds task to the task list
+    # returns nothing
     @task_list << task
   end
   
-  def read_tasks()
+  def task_done(task)
+    # task is Task object
+    # removes the task from the task list
+    # returns nothing
+    task.done()
+    @task_list.delete task
+  end 
+  
+  def tasks_remaining
+    # returns all uncompleted tasks
     @task_list
   end
-  
-  def delete_task(task)
-    fail "no such task!" if !@task_list.include? task
-    #del_task = []
-    #del_task << task
-    @task_list.delete(task)
-    @task_list
-  end
-  
 end
